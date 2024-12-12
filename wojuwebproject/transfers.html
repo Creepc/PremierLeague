@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이적 소식 - MOTD</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .transfers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .transfers-table th,
+        .transfers-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .transfers-table th {
+            background-color: #37003c;
+            color: white;
+            font-weight: 500;
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .player-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .club-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .transfer-type {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .loan { background: #e9ecef; }
+        .permanent { background: #e3f2fd; }
+        
+        .transfer-fee {
+            font-weight: bold;
+            color: #37003c;
+        }
+
+        .transfer-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* 구분선 */
+        .section-divider {
+            margin: 40px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* 섹션 제목 */
+        .section-title {
+            color: #37003c;
+            margin: 30px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <!-- 기존 navbar 내용 -->
+    </nav>
+
+    <div class="container" style="max-width: 1200px; margin: 80px auto 0; padding: 20px;">
+        <h1 class="section-title">이적 현황</h1>
+        
+        <!-- 이적 테이블 -->
+        <table class="transfers-table">
+            <thead>
+                <tr>
+                    <th>선수</th>
+                    <th>이전 구단</th>
+                    <th>새 구단</th>
+                    <th>포지션</th>
+                    <th>이적료</th>
+                    <th>계약기간</th>
+                    <th>날짜</th>
+                </tr>
+            </thead>
+            <tbody id="transfers-list">
+                <!-- 이적 데이터가 여기에 동적으로 추가됩니다 -->
+            </tbody>
+        </table>
+
+        <div class="section-divider"></div>
+
+        <h2 class="section-title">이적 관련 뉴스</h2>
+        <div id="transfer-news-container">
+            <!-- 이적 뉴스가 여기에 동적으로 추가됩니다 -->
+        </div>
+    </div>
+
+    <script src="js/transfers.js"></script>
+</body>
+</html>

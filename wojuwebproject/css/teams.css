@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.standings-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.standings-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.standings-table th,
+.standings-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+}
+
+.standings-table th {
+    text-align: left;
+    color: #666;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+}
+
+.team-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.team-name {
+    font-weight: 500;
+}
+
+.record-cell {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+/* 최근 5경기 스타일 */
+.form-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    padding: 0 5px;
+}
+
+.result-indicator {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin: 0 1px;
+}
+
+.win { background-color: #00a651; }
+.draw { background-color: #8e8e8e; }
+.loss { background-color: #e31e26; }
+
+/* 다음 경기 스타일 */
+.next-opponent {
+    text-align: center;
+    width: 40px;
+}
+
+/* 순위 구분선 */
+tr.cl-position { border-left: 4px solid #00a651; }
+tr.el-position { border-left: 4px solid #2897FF; }
+tr.rel-position { border-left: 4px solid #e31b23; }
+
+/* 범례 */
+.standings-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.legend-color.cl { background-color: #00a651; }
+.legend-color.el { background-color: #2897FF; }
+.legend-color.rel { background-color: #e31b23; }
+
+/* 반응형 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .standings-table th,
+    .standings-table td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+    .result-indicator {
+        width: 20px;
+        height: 20px;
+    }
+}

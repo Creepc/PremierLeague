@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD - 글쓰기</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/write.css">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">MOTD</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="teams.html">순위</a></li>
+                <li><a href="news.html">소식</a></li>
+                <li><a href="#about">일정</a></li>
+                <li><a href="noticeboard.html">게시판</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <!-- 로그인 전 버튼들 -->
+                <div id="beforeLogin">
+                    <button class="login-btn" onclick="openLoginModal()">로그인</button>
+                    <button class="signup-btn" onclick="openSignupModal()">회원가입</button>
+                </div>
+                <!-- 로그인 후 버튼들 -->
+                <div id="afterLogin" style="display: none;">
+                    <span id="userEmail" style="color: white; margin-right: 10px;"></span>
+                    <button class="logout-btn" id="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 글쓰기 폼 -->
+    <div class="write-container">
+        <div class="write-form">
+            <form id="writeForm">
+                <div class="form-group category-select">
+                    <label for="category">카테고리</label>
+                    <select id="category" required>
+                        <option value="">카테고리 선택</option>
+                        <option value="free">자유게시판</option>
+                        <option value="news">뉴스/소식</option>
+                        <option value="analysis">경기분석</option>
+                        <option value="transfer">이적시장</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" required placeholder="제목을 입력하세요">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" required placeholder="내용을 입력하세요"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">이미지 첨부</label>
+                    <div class="file-input-wrapper">
+                        <button class="file-input-button" type="button">이미지 선택</button>
+                        <input type="file" id="image" accept="image/*">
+                    </div>
+                    <span id="fileName" class="file-name"></span>
+                    <img id="imagePreview" src="" alt="이미지 미리보기">
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="cancel-btn" onclick="history.back()">취소</button>
+                    <button type="submit" class="submit-btn">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Premier League. All rights reserved.</p>
+    </footer>
+
+    <script src="js/write.js" type="module"></script>
+</body>
+</html>

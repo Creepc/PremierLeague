@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+    <style>
+        .match {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Premier League API Test</h1>
+    
+    <button onclick="testMatches()">경기 일정 테스트</button>
+    <button onclick="testStandings()">순위표 테스트</button>
+    <button onclick="testTeams()">팀 목록 테스트</button>
+    
+    <div id="results"></div>
+
+    <script>
+        async function testMatches() {
+            try {
+                const response = await fetch('http://localhost:3000/api/matches');
+                const data = await response.json();
+                displayResults('경기 일정:', data);
+            } catch (error) {
+                console.error('Error:', error);
+                displayResults('에러 발생:', error);
+            }
+        }
+
+        async function testStandings() {
+            try {
+                const response = await fetch('http://localhost:3000/api/standings');
+                const data = await response.json();
+                displayResults('순위표:', data);
+            } catch (error) {
+                console.error('Error:', error);
+                displayResults('에러 발생:', error);
+            }
+        }
+
+        async function testTeams() {
+            try {
+                const response = await fetch('http://localhost:3000/api/teams');
+                const data = await response.json();
+                displayResults('팀 목록:', data);
+            } catch (error) {
+                console.error('Error:', error);
+                displayResults('에러 발생:', error);
+            }
+        }
+
+        function displayResults(title, data) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <h2>${title}</h2>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+        }
+    </script>
+</body>
+</html>

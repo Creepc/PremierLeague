@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프리미어리그 순위표</title>
+    <link rel="stylesheet" href="css/teams.css">
+</head>
+<body>
+    <div class="standings-wrapper">
+        <div class="standings-container">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>클럽</th>
+                        <th>경기</th>
+                        <th>승</th>
+                        <th>무</th>
+                        <th>패</th>
+                        <th>득점/실점</th>
+                        <th>득실</th>
+                        <th>승점</th>
+                        
+                        <th>다음</th>
+                    </tr>
+                </thead>
+                <tbody id="standings-body"></tbody>
+            </table>
+            <div class="standings-legend">
+                <div class="legend-item">
+                    <div class="legend-color cl"></div>
+                    <span>챔피언스리그</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color el"></div>
+                    <span>유로파리그</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color rel"></div>
+                    <span>강등권</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/teamLogos.js"></script>
+    <script src="js/teams.js"></script>
+</body>
+</html>

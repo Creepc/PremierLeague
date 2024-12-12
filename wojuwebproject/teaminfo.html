@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>팀 정보</title>
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/teaminfo.css">
+</head>
+<body>
+   <!-- 네비게이션 바 -->
+   <nav class="navbar">
+       <div class="navbar-container">
+           <div class="logo">MOTD</div>
+           <ul class="nav-menu">
+               <li><a href="index.html">홈</a></li>
+               <li><a href="teams.html">순위</a></li>
+               <li><a href="news.html">소식</a></li>
+               <li><a href="transfers.html">이적</a></li>
+               <li><a href="noticeboard.html">게시판</a></li>
+           </ul>
+           <div class="auth-buttons">
+               <button class="login-btn" onclick="openLoginModal()">로그인</button>
+               <button class="signup-btn" onclick="openSignupModal()">회원가입</button>
+           </div>
+           <div class="hamburger">
+               <span class="bar"></span>
+               <span class="bar"></span>
+               <span class="bar"></span>
+           </div>
+       </div>
+   </nav>
+
+   <div id="team-content" class="team-page">
+       <!-- 팀 정보가 동적으로 추가될 위치 -->
+   </div>
+
+   <!-- 로그인 모달 -->
+   <div id="loginModal" class="modal">
+       <div class="modal-content">
+           <span class="close" onclick="closeLoginModal()">&times;</span>
+           <h2>로그인</h2>
+           <form id="loginForm">
+               <input type="email" id="loginEmail" placeholder="이메일" required>
+               <input type="password" id="loginPassword" placeholder="비밀번호" required>
+               <button type="submit">로그인</button>
+           </form>
+       </div>
+   </div>
+
+   <!-- 회원가입 모달 -->
+   <div id="signupModal" class="modal">
+       <div class="modal-content">
+           <span class="close" onclick="closeSignupModal()">&times;</span>
+           <h2>회원가입</h2>
+           <form id="signupForm">
+               <input type="email" id="signupEmail" placeholder="이메일" required>
+               <input type="password" id="signupPassword" placeholder="비밀번호" required>
+               <input type="password" id="signupPasswordConfirm" placeholder="비밀번호 확인" required>
+               <button type="submit">회원가입</button>
+           </form>
+       </div>
+   </div>
+
+   <!-- 선수 정보 모달 -->
+   <div id="playerModal" class="modal">
+       <div class="modal-content">
+           <span class="close" onclick="closePlayerModal()">&times;</span>
+           <div id="playerModalContent">
+               <!-- 선수 정보가 동적으로 추가될 위치 -->
+           </div>
+       </div>
+   </div>
+
+   <footer>
+       <p>&copy; 2024 Premier League. All rights reserved.</p>
+   </footer>
+
+   <!-- 스크립트 -->
+   <script src="firebase-config.js"></script>
+   <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+       import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+       import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+       import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+       const firebaseConfig = {
+           apiKey: "AIzaSyDoOJnpeNjFIs2-kMXV2h4L-1ndd8frhQc",
+           authDomain: "web-project-e55ab.firebaseapp.com",
+           projectId: "web-project-e55ab",
+           storageBucket: "web-project-e55ab.firebasestorage.app",
+           messagingSenderId: "468612045072",
+           appId: "1:468612045072:web:b3a5bba4d11f4baac22d95",
+           measurementId: "G-QYMDX2Y1MT"
+       };
+
+       const app = initializeApp(firebaseConfig);
+       const analytics = getAnalytics(app);
+       const db = getFirestore(app);
+       const auth = getAuth(app);
+   </script>
+   <script type="module" src="js/app.js"></script>
+   <script src="js/teamPage.js"></script>
+</body>
+</html>

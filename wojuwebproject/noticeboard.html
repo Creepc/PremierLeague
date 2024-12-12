@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD - 게시판</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/noticeboard.css">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">MOTD</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="teams.html">순위</a></li>
+                <li><a href="news.html">소식</a></li>
+                <li><a href="#about">일정</a></li>
+                <li><a href="noticeboard.html">게시판</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <!-- 로그인 전 버튼들 -->
+                <div id="beforeLogin">
+                    <button class="login-btn" onclick="openLoginModal()">로그인</button>
+                    <button class="signup-btn" onclick="openSignupModal()">회원가입</button>
+                </div>
+                <!-- 로그인 후 버튼들 -->
+                <div id="afterLogin" style="display: none;">
+                    <span id="userEmail" style="color: white; margin-right: 10px;"></span>
+                    <button class="logout-btn" id="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 게시판 섹션 -->
+    <div class="board-container">
+        <h1 class="board-title">프리미어리그 게시판</h1>
+        <div class="board-wrapper">
+            <div class="notice-board">
+                <!-- 검색 및 필터 -->
+                <div class="board-header">
+                    <div class="board-filters">
+                        <select class="search-select" id="categoryFilter">
+                            <option value="">전체 카테고리</option>
+                            <option value="free">자유게시판</option>
+                            <option value="news">뉴스/소식</option>
+                            <option value="analysis">경기분석</option>
+                            <option value="transfer">이적시장</option>
+                        </select>
+                    </div>
+                    <div class="search-box">
+                        <select class="search-select" id="searchType">
+                            <option value="title">제목</option>
+                            <option value="content">내용</option>
+                            <option value="author">작성자</option>
+                        </select>
+                        <input type="text" class="search-input" id="searchInput" placeholder="검색어를 입력하세요">
+                        <button class="search-button" id="searchButton">검색</button>
+                    </div>
+                </div>
+
+                <table class="board-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">번호</th>
+                            <th width="50%">제목</th>
+                            <th width="15%">작성자</th>
+                            <th width="15%">작성일</th>
+                            <th width="10%">조회</th>
+                        </tr>
+                    </thead>
+                    <tbody id="board-list">
+                        <!-- JavaScript로 동적으로 게시글이 추가됨 -->
+                    </tbody>
+                </table>
+
+                <button class="write-btn" id="writeButton">글쓰기</button>
+
+                <!-- 페이지네이션 -->
+                <div class="pagination" id="pagination">
+                    <!-- JavaScript로 동적으로 페이지 버튼이 추가됨 -->
+                </div>
+            </div>
+
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h3>실시간 채팅</h3>
+                    <span id="user-email"></span>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- JavaScript로 동적으로 메시지가 추가됨 -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+                    <button id="send-button">전송</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Premier League. All rights reserved.</p>
+    </footer>
+
+    <script src="js/noticeboard.js" type="module"></script>
+</body>
+</html>
